@@ -1,0 +1,14 @@
+#create s3 bucket AWS CLIV2
+aws s3 mb s3://s3bucket22222
+
+#Create IAM uSer 
+aws iam create-user --user-name user2324
+
+# Attach Policy to a user 
+ aws iam attach-user-policy --user-name  user2324 --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+
+#Verify policy was attached
+aws iam list-attached-user-policies --user-name  user2324
+
+#Create access key and secret
+aws iam create-access-key --user-name   user2324
